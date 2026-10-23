@@ -4,10 +4,10 @@
 // =====================================================
 window.BAKPLANLA_AYARLAR = {
   // Şirket kurulana kadar: kendi adın ve soyadın. Şirket kurulunca: şirket unvanı.
-  sorumlu: "[AD SOYAD]",
+  sorumlu: "DENİZ KUŞAKLI",
 
   // Tebligat adresin (il/ilçe dahil).
-  adres: "[ADRES]",
+  adres: "Sultangazi/İstanbul",
 
   // Destek ve KVKK başvuru e-postası (uygulamadaki adresle aynı).
   eposta: "bakplanla.destek@gmail.com",
