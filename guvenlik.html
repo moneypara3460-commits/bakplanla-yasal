@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veri Güvenliği ve Saklama Politikası · BAKPLANLA</title>
+<meta name="description" content="BAKPLANLA — Veri Güvenliği ve Saklama Politikası">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+<header><div class="in"><a class="logo" href="index.html">BAK<span>PLANLA</span></a><nav><a href="index.html">Ana sayfa</a><a href="gizlilik.html">Gizlilik</a><a href="kvkk.html">KVKK</a><a href="kosullar.html">Koşullar</a><a href="abonelik.html">Abonelik</a><a href="guvenlik.html" aria-current="page">Güvenlik</a><a href="hesap-silme.html">Hesap silme</a></nav></div></header>
+<main><article>
+<h1>Veri Güvenliği ve Saklama Politikası</h1>
+<p><em>Yürürlük tarihi: 23 Ekim 2026</em></p>
+<p>Bu politika, KVKK m.12 kapsamında aldığımız teknik ve idari tedbirleri ve Kişisel Verilerin Silinmesi, Yok Edilmesi veya Anonim Hale Getirilmesi Hakkında Yönetmelik'e göre saklama sürelerini anlatır.</p>
+<h2>Teknik tedbirler</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+  <th>Tedbir</th>
+  <th>Nasıl uygulanıyor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Aktarımda şifreleme</td>
+  <td>Uygulama ile sunucular arasındaki tüm trafik HTTPS (TLS) üzerinden</td>
+</tr>
+<tr>
+  <td>Oturum bilgisinin korunması</td>
+  <td>Oturum anahtarı telefonun güvenli deposunda (iOS Keychain, Android Keystore); güvenli depoya yazılamazsa düz depoya yazılmaz</td>
+</tr>
+<tr>
+  <td>Saklanan verinin şifrelenmesi</td>
+  <td>Supabase veritabanı ve depolama alanı diskte AES-256 ile şifreli</td>
+</tr>
+<tr>
+  <td>Kullanıcı verilerinin ayrılması</td>
+  <td>Satır düzeyinde güvenlik (RLS): her kullanıcı yalnızca kendi kayıtlarına erişir; belge görselleri özel kovada, kullanıcıya ait klasörde</td>
+</tr>
+<tr>
+  <td>Görsel erişimi</td>
+  <td>Bulut görselleri kalıcı bağlantıyla değil, 120 saniyelik imzalı bağlantıyla açılır; en fazla 8 MB, yalnızca jpg/png/webp</td>
+</tr>
+<tr>
+  <td>Gizli anahtarlar</td>
+  <td>Yapay zekâ ve sunucu anahtarları yalnızca sunucuda; uygulamada yalnızca herkese açık anahtar bulunur</td>
+</tr>
+<tr>
+  <td>Kimlik doğrulama</td>
+  <td>Yapay zekâ ve hesap işlemleri yalnızca e-postası doğrulanmış, giriş yapmış kullanıcıyla</td>
+</tr>
+<tr>
+  <td>Kötüye kullanım sınırı</td>
+  <td>Kullanıcı başına dakikada en fazla 10 yapay zekâ ve 30 mekan isteği; istek boyutu sınırlı</td>
+</tr>
+<tr>
+  <td>Kayıtlarda veri gizleme</td>
+  <td>Hata kayıtlarına belge, soru, oturum anahtarı veya şifre yazılmaz</td>
+</tr>
+<tr>
+  <td>Sunucu taraflı doğrulama</td>
+  <td>Rozet, deneme hakkı ve promosyon kodu sunucuda kontrol edilir; promosyon kodu e-postaya bağlı ve tek kullanımlık</td>
+</tr>
+<tr>
+  <td>Veri en aza indirme</td>
+  <td>PLAN AI'ye yalnızca soruyla ilgili belgeler gönderilir; OpenAI'de yanıt saklama kapalı; GPS sunucuya gönderilmez</td>
+</tr>
+</tbody>
+</table></div>
+<h2>İdari tedbirler</h2>
+<ul>
+<li>Yönetim panellerine (Supabase, OpenAI, GitHub, Google) yalnızca veri sorumlusu erişir; hepsinde iki aşamalı doğrulama açıktır.</li>
+<li>Geliştirici veya başka bir kişiye erişim verilirse gizlilik taahhüdü alınır, erişim iş bitince kapatılır.</li>
+<li>Sunucu anahtarları hiçbir zaman uygulamaya, kod deposuna veya mesajla paylaşılmaz; kod deposu gizli (private) tutulur.</li>
+<li>Hizmet sağlayıcılarla veri işleme sözleşmeleri (DPA) yürürlüktedir.</li>
+<li>Bu politika yılda en az bir kez ve her büyük özellik eklendiğinde gözden geçirilir.</li>
+</ul>
+<h2>Veri ihlali</h2>
+<p>Bir ihlal fark edilirse erişim hemen kesilir, anahtarlar yenilenir ve etki belirlenir. Kişisel Verileri Koruma Kurulu'na en geç <strong>72 saat</strong> içinde bildirim yapılır ve etkilenen kullanıcılar en kısa sürede bilgilendirilir. Her olay ne olduğu, ne zaman fark edildiği ve ne yapıldığıyla kayıt altına alınır.</p>
+<h2>Saklama ve imha süreleri</h2>
+<div class="tbl"><table>
+<thead>
+<tr>
+  <th>Veri</th>
+  <th>Saklama süresi</th>
+  <th>İmha yöntemi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Hesap bilgileri ve onay kayıtları</td>
+  <td>Hesap silinene kadar</td>
+  <td>Hesap silmeyle kalıcı silme</td>
+</tr>
+<tr>
+  <td>Bulut yedeği ve belge görselleri</td>
+  <td>Kullanıcı silene veya hesap silinene kadar</td>
+  <td>Kalıcı silme; sağlayıcı yedeklerinden en geç 30 günde</td>
+</tr>
+<tr>
+  <td>Cihazdaki veriler</td>
+  <td>Kullanıcı silene veya uygulama kaldırılana kadar</td>
+  <td>Kullanıcı tarafından silme</td>
+</tr>
+<tr>
+  <td>İş Başı ve İş Köprüsü kayıtları</td>
+  <td>Hesap silinene kadar</td>
+  <td>Hesap silmeyle kalıcı silme</td>
+</tr>
+<tr>
+  <td>Fatura ve ödeme kayıtları (ödeme başladığında)</td>
+  <td>10 yıl (Vergi Usul Kanunu, Türk Ticaret Kanunu)</td>
+  <td>Süre sonunda silme</td>
+</tr>
+<tr>
+  <td>Hesap silme kaydı</td>
+  <td>3 yıl (kişisel veri içermez, yalnızca tek yönlü özet)</td>
+  <td>Süre sonunda silme</td>
+</tr>
+<tr>
+  <td>Cihaz eşleştirme kodları</td>
+  <td>Kısa süreli, kullanılınca geçersiz</td>
+  <td>Otomatik</td>
+</tr>
+<tr>
+  <td>İstek sınırı sayacı</td>
+  <td>1 dakika</td>
+  <td>Otomatik</td>
+</tr>
+<tr>
+  <td>Mekan arama önbelleği (kimliksiz)</td>
+  <td>En fazla 24 saat</td>
+  <td>Otomatik</td>
+</tr>
+<tr>
+  <td>Sunucu günlükleri</td>
+  <td>Supabase planına göre 1–7 gün</td>
+  <td>Otomatik</td>
+</tr>
+<tr>
+  <td>OpenAI'ye giden istekler</td>
+  <td>OpenAI tarafında en fazla 30 gün (kötüye kullanım denetimi)</td>
+  <td>OpenAI tarafından</td>
+</tr>
+</tbody>
+</table></div>
+<p>Süresi dolan veriler 6 aylık dönemlerde gözden geçirilerek silinir.</p>
+<p>Veri sorumlusu: <span data-k="sorumlu">[AD SOYAD]</span> · <span data-k="eposta">bakplanla.destek@gmail.com</span></p>
+
+</article></main>
+<footer><div class="in">© 2026 BAKPLANLA · Hayatını Seninle Planlar.</div></footer>
+<script src="ayarlar.js"></script>
+<script src="doldur.js"></script>
+</body>
+</html>

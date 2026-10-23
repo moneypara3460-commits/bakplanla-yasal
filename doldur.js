@@ -1,0 +1,2 @@
+(function(){var a=window.BAKPLANLA_AYARLAR||{};document.querySelectorAll('[data-k]').forEach(function(el){var v=a[el.getAttribute('data-k')];if(v)el.textContent=v;});
+var b=document.getElementById('mailbtn');if(b&&a.eposta){b.href='mailto:'+a.eposta+'?subject='+encodeURIComponent('Hesabımı silin')+'&body='+encodeURIComponent('Merhaba,\n\nBAKPLANLA hesabımın ve tüm verilerimin silinmesini istiyorum.\nHesabımın e-posta adresi: \n\nTeşekkürler.');}})();
