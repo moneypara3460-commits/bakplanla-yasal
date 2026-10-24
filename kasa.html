@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>BAKPLANLA Kasa</title>
+<style>
+  :root { --green:#0A3D33; --green2:#12524A; --gold:#F5B83D; --cream:#F7F1E6; --white:#FFFFFF; --muted:#6E7F7A; --red:#C8463D; --ok:#1E8A5A; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--cream); color:var(--green); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { background:var(--green); color:var(--white); padding:18px 16px 16px; }
+  header .brand { color:var(--gold); font-weight:900; letter-spacing:2px; font-size:13px; }
+  header h1 { margin:6px 0 0; font-size:22px; }
+  main { max-width:460px; margin:0 auto; padding:16px; }
+  .card { background:var(--white); border-radius:18px; padding:16px; margin-bottom:14px; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+  label { display:block; font-weight:800; font-size:13px; margin:12px 0 6px; }
+  input[type=password], input[type=text] { width:100%; font-size:22px; padding:12px 14px; border-radius:12px; border:2px solid #D9E2DD; letter-spacing:3px; color:var(--green); background:#FBFCFB; }
+  input:focus { outline:none; border-color:var(--green2); }
+  .remember { display:flex; align-items:center; gap:8px; font-size:14px; margin-top:10px; color:var(--muted); }
+  button { width:100%; margin-top:16px; padding:16px; border:0; border-radius:14px; background:var(--gold); color:var(--green); font-size:18px; font-weight:900; cursor:pointer; }
+  button:disabled { opacity:.55; }
+  .small { font-size:13px; color:var(--muted); line-height:1.5; }
+  .result { border-radius:18px; padding:20px 16px; text-align:center; margin-bottom:14px; display:none; }
+  .result.show { display:block; }
+  .result .big { font-size:26px; font-weight:900; margin:6px 0; }
+  .result.ok { background:#E3F5EC; color:var(--ok); border:2px solid var(--ok); }
+  .result.bad { background:#FBE9E7; color:var(--red); border:2px solid var(--red); }
+  .forget { background:none; color:var(--muted); font-size:13px; font-weight:700; padding:6px; margin-top:6px; text-decoration:underline; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">BAKPLANLA · KASA</div>
+  <h1 id="title">İndirim Kodu Kontrolü</h1>
+</header>
+<main>
+  <div id="result" class="result" role="status" aria-live="polite"></div>
+
+  <div class="card">
+    <div id="pinBox">
+      <label for="pin">Kasa PIN'i</label>
+      <input id="pin" type="password" inputmode="numeric" autocomplete="off" maxlength="12">
+      <div class="remember"><input id="remember" type="checkbox" checked> <span>Bu telefonda hatırla</span></div>
+    </div>
+    <div id="pinSaved" style="display:none" class="small">Kasa PIN'i bu telefonda kayıtlı. <button class="forget" id="forget" type="button">PIN'i unut</button></div>
+
+    <label for="code">Müşterinin 6 haneli kodu</label>
+    <input id="code" type="text" inputmode="numeric" autocomplete="off" maxlength="7" placeholder="000 000">
+
+    <button id="go" type="button">Kontrol Et ve Kullan</button>
+    <p class="small">Kod geçerliyse bu ekranda <b>yeşil onay</b> çıkar ve kod kullanılmış sayılır; ikinci kez geçmez. Müşterinin adı veya e-postası bu sayfada gösterilmez.</p>
+  </div>
+
+  <p class="small">Müşteri uygulamadaki QR'ı gösterdiğinde telefonun kamerasıyla okutun; bu sayfa kod yazılı olarak açılır, yalnızca butona basmanız yeterlidir.</p>
+</main>
+
+<script>
+(function () {
+  var SUPABASE_URL = 'https://bukbteqgzkytedhrmdgq.supabase.co';
+  var PUBLIC_KEY = 'sb_publishable_r3TBgZX4Sfsix_UnIihD-w_EjQ2EPKF'; // herkese açık anahtar (gizli değil)
+  var params = new URLSearchParams(location.search);
+  var partner = (params.get('i') || 'cucci-bruschetta').replace(/[^a-z0-9-]/g, '');
+  var PIN_KEY = 'bakplanla_kasa_pin_' + partner;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var store = {
+    get: function () { try { return localStorage.getItem(PIN_KEY) || ''; } catch (e) { return ''; } },
+    set: function (v) { try { localStorage.setItem(PIN_KEY, v); } catch (e) {} },
+    del: function () { try { localStorage.removeItem(PIN_KEY); } catch (e) {} }
+  };
+
+  var codeInput = $('code');
+  var fromLink = (params.get('k') || '').replace(/\D/g, '').slice(0, 6);
+  var fmt = function (d) { return d.length > 3 ? d.slice(0, 3) + ' ' + d.slice(3) : d; };
+  if (fromLink) codeInput.value = fmt(fromLink);
+  codeInput.addEventListener('input', function () { codeInput.value = fmt(codeInput.value.replace(/\D/g, '').slice(0, 6)); });
+
+  function showPinState() {
+    var saved = store.get();
+    $('pinBox').style.display = saved ? 'none' : 'block';
+    $('pinSaved').style.display = saved ? 'block' : 'none';
+  }
+  showPinState();
+  $('forget').addEventListener('click', function () { store.del(); $('pin').value = ''; showPinState(); });
+
+  function show(kind, big, text) {
+    var el = $('result');
+    el.className = 'result show ' + kind;
+    el.innerHTML = '';
+    var b = document.createElement('div'); b.className = 'big'; b.textContent = big; el.appendChild(b);
+    if (text) { var t = document.createElement('div'); t.textContent = text; el.appendChild(t); }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  var hhmm = function (iso) {
+    var t = Date.parse(iso); if (!isFinite(t)) return '';
+    var d = new Date(t + 3 * 3600 * 1000);
+    return ('0' + d.getUTCHours()).slice(-2) + ':' + ('0' + d.getUTCMinutes()).slice(-2);
+  };
+
+  var MSG = {
+    bad_pin: ['PIN yanlış', 'Kasa PIN\'ini kontrol edip tekrar deneyin.'],
+    invalid: ['Geçersiz kod', 'Bu kod bugün için bulunamadı. Rakamları kontrol edin.'],
+    expired: ['Süresi dolmuş', 'Kodlar yalnızca alındığı gün 10:00–22:00 arasında geçerlidir.'],
+    too_many: ['Çok fazla hatalı deneme', 'Güvenlik için 15 dakika bekleyip tekrar deneyin.'],
+    invalid_partner: ['İşletme tanımlı değil', 'Kasa PIN\'i henüz ayarlanmamış olabilir. BAKPLANLA ile iletişime geçin.']
+  };
+
+  $('go').addEventListener('click', function () {
+    var code = codeInput.value.replace(/\D/g, '');
+    var pin = store.get() || $('pin').value.trim();
+    if (!pin) { show('bad', 'PIN gerekli', 'Önce kasa PIN\'ini yazın.'); return; }
+    if (code.length !== 6) { show('bad', 'Kod 6 haneli olmalı', ''); return; }
+    var btn = $('go'); btn.disabled = true; btn.textContent = 'Kontrol ediliyor…';
+
+    fetch(SUPABASE_URL + '/rest/v1/rpc/partner_redeem_code', {
+      method: 'POST',
+      headers: { 'apikey': PUBLIC_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ p_partner: partner, p_pin: pin, p_code: code })
+    })
+      .then(function (r) { return r.json().catch(function () { return {}; }); })
+      .then(function (d) {
+        if (d && d.ok) {
+          if (!store.get() && $('remember').checked) { store.set(pin); showPinState(); }
+          show('ok', '✓ GEÇERLİ — %' + d.percent + ' indirim', (d.offer || '') + ' · Kod ' + fmt(d.code).replace(' ', '\u00a0') + ' kullanıldı (' + hhmm(d.redeemed_at) + ').');
+          codeInput.value = '';
+          if (fromLink) history.replaceState(null, '', location.pathname + '?i=' + partner);
+        } else if (d && d.error === 'used') {
+          show('bad', 'Bu kod kullanılmış', 'Saat ' + hhmm(d.redeemed_at) + '\'da kullanıldı. İndirim tekrar uygulanmaz.');
+        } else if (d && MSG[d.error]) {
+          if (d.error === 'bad_pin' && store.get()) { store.del(); showPinState(); }
+          show('bad', MSG[d.error][0], MSG[d.error][1]);
+        } else {
+          show('bad', 'Kontrol edilemedi', 'Bağlantıda sorun olabilir. Tekrar deneyin.');
+        }
+      })
+      .catch(function () { show('bad', 'İnternet bağlantısı yok', 'Bağlantıyı kontrol edip tekrar deneyin.'); })
+      .then(function () { btn.disabled = false; btn.textContent = 'Kontrol Et ve Kullan'; });
+  });
+})();
+</script>
+</body>
+</html>
