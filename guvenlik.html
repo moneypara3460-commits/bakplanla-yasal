@@ -11,7 +11,7 @@
 <header><div class="in"><a class="logo" href="index.html">BAK<span>PLANLA</span></a><nav><a href="index.html">Ana sayfa</a><a href="gizlilik.html">Gizlilik</a><a href="kvkk.html">KVKK</a><a href="kosullar.html">Koşullar</a><a href="abonelik.html">Abonelik</a><a href="guvenlik.html" aria-current="page">Güvenlik</a><a href="hesap-silme.html">Hesap silme</a></nav></div></header>
 <main><article>
 <h1>Veri Güvenliği ve Saklama Politikası</h1>
-<p><em>Yürürlük tarihi: 23 Ekim 2026</em></p>
+<p><em>Yürürlük tarihi: 25 Ekim 2026</em></p>
 <p>Bu politika, KVKK m.12 kapsamında aldığımız teknik ve idari tedbirleri ve Kişisel Verilerin Silinmesi, Yok Edilmesi veya Anonim Hale Getirilmesi Hakkında Yönetmelik'e göre saklama sürelerini anlatır.</p>
 <h2>Teknik tedbirler</h2>
 <div class="tbl"><table>
@@ -52,7 +52,7 @@
 </tr>
 <tr>
   <td>Kötüye kullanım sınırı</td>
-  <td>Kullanıcı başına dakikada en fazla 10 yapay zekâ ve 30 mekan isteği; istek boyutu sınırlı</td>
+  <td>Kullanıcı başına dakikada en fazla 10 yapay zekâ ve 30 mekan isteği; ayrıca günde 25, ayda 300 yapay zekâ kullanımı; istek boyutu sınırlı</td>
 </tr>
 <tr>
   <td>Kayıtlarda veri gizleme</td>
@@ -60,7 +60,7 @@
 </tr>
 <tr>
   <td>Sunucu taraflı doğrulama</td>
-  <td>Rozet, deneme hakkı ve promosyon kodu sunucuda kontrol edilir; promosyon kodu e-postaya bağlı ve tek kullanımlık</td>
+  <td>Rozet, deneme hakkı, promosyon ve indirim kodları sunucuda kontrol edilir; promosyon kodu e-postaya bağlı ve tek kullanımlık; indirim kodu tek kullanımlık ve kasada PIN ile doğrulanır, kasa yalnızca kodun geçerliliğini görür</td>
 </tr>
 <tr>
   <td>Veri en aza indirme</td>
@@ -70,7 +70,8 @@
 </table></div>
 <h2>İdari tedbirler</h2>
 <ul>
-<li>Yönetim panellerine (Supabase, OpenAI, GitHub, Google) yalnızca veri sorumlusu erişir; hepsinde iki aşamalı doğrulama açıktır.</li>
+<li>Yönetim panellerine (Supabase, OpenAI, GitHub, Google) yalnızca veri sorumlusu erişir ve bu hesaplarda iki aşamalı doğrulama kullanılır.</li>
+<li>İşletme başvuruları yalnızca veri sorumlusu tarafından incelenir; başvuru bildirimleri iki aşamalı doğrulamalı destek e-posta hesabına gelir.</li>
 <li>Geliştirici veya başka bir kişiye erişim verilirse gizlilik taahhüdü alınır, erişim iş bitince kapatılır.</li>
 <li>Sunucu anahtarları hiçbir zaman uygulamaya, kod deposuna veya mesajla paylaşılmaz; kod deposu gizli (private) tutulur.</li>
 <li>Hizmet sağlayıcılarla veri işleme sözleşmeleri (DPA) yürürlüktedir.</li>
@@ -104,9 +105,24 @@
   <td>Kullanıcı tarafından silme</td>
 </tr>
 <tr>
-  <td>İş Başı ve İş Köprüsü kayıtları</td>
+  <td>İş Başı kayıtları ve rozetler</td>
   <td>Hesap silinene kadar</td>
   <td>Hesap silmeyle kalıcı silme</td>
+</tr>
+<tr>
+  <td>İndirim kodu kayıtları</td>
+  <td>Hesap silinene kadar</td>
+  <td>Hesap silmeyle kalıcı silme</td>
+</tr>
+<tr>
+  <td>Yapay zekâ günlük kullanım sayısı</td>
+  <td>Hesap silinene kadar (yalnızca sayı)</td>
+  <td>Hesap silmeyle kalıcı silme</td>
+</tr>
+<tr>
+  <td>İşletmeni Tanıt başvurusu</td>
+  <td>Başvuran hesap silinene kadar; onaylı tanıtım kaldırılınca listeden çıkar</td>
+  <td>Hesap silmeyle kalıcı silme; destek e-posta kutusundaki bildirim e-postaları elle silinir</td>
 </tr>
 <tr>
   <td>Fatura ve ödeme kayıtları (ödeme başladığında)</td>

@@ -13,5 +13,5 @@ window.BAKPLANLA_AYARLAR = {
   eposta: "bakplanla.destek@gmail.com",
 
   // Supabase sunucu bölgesi (Supabase → Project Settings → General → Region). Örn: "Almanya (Frankfurt)"
-  bolge: "Yurt dışı",
+  bolge: "Almanya (Frankfurt)",
 };

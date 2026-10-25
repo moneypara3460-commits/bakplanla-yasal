@@ -158,6 +158,27 @@ p{margin:0}
 @media (max-width:860px){.pro .wrap{grid-template-columns:1fr}}
 
 /* ---------- alt ---------- */
+/* ---------- işletmeler ---------- */
+.isletme .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.isletme h2{max-width:16ch}
+.ortak{background:var(--kagit);border:1px solid var(--cizgi);border-radius:18px;padding:22px}
+.ortak .etiket{display:inline-block;font-size:12px;font-weight:700;color:var(--orman);background:var(--altin);border-radius:999px;padding:3px 10px}
+.ortak h3{margin-top:12px;font-size:24px;color:var(--orman)}
+.ortak .indirim{margin-top:8px;font-size:18px}
+.ortak .indirim b{color:var(--orman)}
+.ortak p.soluk{margin-top:8px;color:var(--gri);font-size:15px}
+.ortak + .ortak{margin-top:14px}
+.ortak.davet{background:var(--orman);color:#fff;border:0}
+.ortak.davet h3{color:#fff}
+.ortak.davet p.soluk{color:#C9DBD2}
+.ortak.davet .yol-k{margin-top:12px;font-weight:700;color:var(--altin)}
+.pasaport{list-style:none;margin:28px 0 0;padding:0;border-top:2px solid var(--orman)}
+.pasaport li{padding:14px 0;border-bottom:1px solid var(--cizgi)}
+.pasaport b{color:var(--orman)}
+.pasaport span{display:block;color:var(--gri);font-size:15px;margin-top:2px}
+.isletme .not{margin-top:18px;color:var(--gri);font-size:15px;max-width:52ch}
+@media (max-width:860px){.isletme .wrap{grid-template-columns:1fr}}
+
 .alt{background:#0A2C22;color:#C9DBD2;padding:56px 0 40px;font-size:15px}
 .alt .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
 .alt h3{font-family:"Figtree",sans-serif;font-size:15px;font-weight:700;color:#fff;margin-bottom:12px}
@@ -178,6 +199,7 @@ p{margin:0}
       <a href="#nasil">Nasıl çalışır</a>
       <a href="#ozellikler">Özellikler</a>
       <a href="#pusula">PUSULA</a>
+      <a href="#isletmeler">İşletmeler</a>
       <a href="#gizlilik">Gizlilik</a>
     </nav>
   </div>
@@ -187,7 +209,7 @@ p{margin:0}
   <section class="giris">
     <div class="wrap">
       <div>
-        <h1>Hayatını<span>seninle planlar.</span></h1>
+        <h1>Hayatını <span>seninle planlar.</span></h1>
         <p class="ozet">Belgelerini anlar, son tarihleri hatırlatır. Gününü planlar, fırsatları yakalar, sana uygun mesleği bulur. Hepsi tek uygulamada.</p>
         <div class="eylem">
           <span class="dugme altin" role="note">
@@ -272,7 +294,7 @@ p{margin:0}
       <div class="liste">
         <div class="ozellik">
           <div class="ikon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3B23C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div>
-          <div><h3>PLAN AI</h3><p>Belgelerin hakkında soru sor, kendi kayıtlarına göre cevap al.</p><span class="ornek">"Buzdolabımın garantisi ne zaman bitiyor?"</span></div>
+          <div><h3>PLAN AI</h3><p>Belgelerin hakkında soru sor, kendi kayıtlarına göre cevap al. Söylediğin işi takvimine yazar, zamanı gelince hatırlatır.</p><span class="ornek">"Yarın 9'da çay almamı hatırlat"</span></div>
         </div>
         <div class="ozellik">
           <div class="ikon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3B23C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
@@ -294,6 +316,14 @@ p{margin:0}
           <div class="ikon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3B23C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 18a4.5 4.5 0 0 1-.6-9A6 6 0 0 1 18 8.5a4 4 0 0 1-.5 9.5z"/><path d="m9.5 13 2 2 3.5-3.5"/></svg></div>
           <div><h3>Bulut yedekleme ve QR Merkezi</h3><p>Verilerini hesabına özel, kapalı bir alana yedekle; yeni telefonuna QR kodla geç.</p></div>
         </div>
+        <div class="ozellik">
+          <div class="ikon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3B23C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+          <div><h3>Dört dilde</h3><p>Uygulamayı Türkçe, İngilizce, Almanca veya Arapça kullan.</p><span class="ornek">Türkçe · English · Deutsch · <span lang="ar" dir="rtl">العربية</span></span></div>
+        </div>
+        <div class="ozellik">
+          <div class="ikon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E3B23C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div>
+          <div><h3>Anlaşmalı işletmelerde indirim</h3><p>Uygulamadan tek kullanımlık indirim kodunu al, kasada göster.</p></div>
+        </div>
       </div>
     </div>
   </section>
@@ -302,7 +332,7 @@ p{margin:0}
     <div class="wrap">
       <div>
         <h2>Hangi meslek sana yakın?</h2>
-        <p class="giris-metni">PUSULA'nın sorularını cevapla, sana en yakın mesleği gör. Sonra Meslek Provası'nda o işte bir günün nasıl geçtiğini dene; İş Başı oyunlarında kasaya geç, reyonu düzenle, kahve hazırla.</p>
+        <p class="giris-metni">PUSULA'nın sorularını cevapla, sana en yakın mesleği gör. Sonra Meslek Provası'nda o işte bir günün nasıl geçtiğini dene; İş Başı oyunlarında kasaya geç, reyonu düzenle, kahve hazırla. Kazandıklarını Meslek Pasaportu'nda topla.</p>
         <div class="meslekler" aria-label="Örnek meslekler">
           <span>Hemşire</span><span>Yazılımcı</span><span>Aşçı</span><span>Grafik Tasarımcı</span><span>Elektrik Teknisyeni</span><span>Öğretmen</span><span>Barista</span><span>Muhasebeci</span>
         </div>
@@ -311,6 +341,34 @@ p{margin:0}
         <div><strong>36</strong><span>soruluk test</span></div>
         <div><strong>32</strong><span>meslekte prova</span></div>
         <div><strong>3</strong><span>İş Başı oyunu</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bolum isletme" id="isletmeler">
+    <div class="wrap">
+      <div>
+        <h2>Meslek Pasaportu ve işletmeler</h2>
+        <p class="giris-metni">PUSULA sonucun, prova puanların ve İş Başı rozetlerin tek sayfada. Pasaportunu dilediğin kişiyle kendin paylaşırsın.</p>
+        <ul class="pasaport">
+          <li><b>PUSULA sonucun</b><span>Sana en yakın meslek ve öne çıkan üç alanın.</span></li>
+          <li><b>Prova puanların</b><span>Denediğin mesleklerde aldığın puanlar.</span></li>
+          <li><b>İş Başı rozetlerin</b><span>Seviyelerin ve kazandığın başarımlar.</span></li>
+        </ul>
+        <p class="not">Meslek Pasaportu resmî bir sertifika değildir. BAKPLANLA iş ilanı yayınlamaz, iş arayanla işvereni eşleştirmez.</p>
+      </div>
+      <div>
+        <div class="ortak">
+          <span class="etiket">Anlaşmalı işletme</span>
+          <h3>Cucci Bruschetta</h3>
+          <p class="indirim">Tüm kahvelerde <b>%10 indirim</b></p>
+          <p class="soluk">Vega İstanbul AVM, Sultangazi. Uygulamadan aldığın tek kullanımlık kodla; kişi başı günde bir kez, 10:00–22:00 arası.</p>
+        </div>
+        <div class="ortak davet">
+          <h3>İşletmeni tanıt</h3>
+          <p class="soluk">Kafe, restoran, mağaza ya da hizmet işletmen mi var? Bilgilerini gönder; onaylanınca BAKPLANLA'da İşletmeler arasında yer al. Tanıtım şu an ücretsiz.</p>
+          <p class="yol-k">Uygulamada: Profil → İşletmeni Tanıt</p>
+        </div>
       </div>
     </div>
   </section>
@@ -334,7 +392,7 @@ p{margin:0}
     <div class="wrap">
       <div>
         <h2>Önce dene, beğenirsen Pro'ya geç</h2>
-        <p class="giris-metni">Belge ekleme, görevler, hatırlatmalar, PUSULA ve İş Başı ücretsiz. Her yapay zekâ özelliğini de bir kez ücretsiz kullanabilirsin.</p>
+        <p class="giris-metni">Belge ekleme, görevler, hatırlatmalar, PUSULA ve İş Başı ücretsiz. Her yapay zekâ özelliğini de bir kez ücretsiz kullanabilirsin. Adil kullanım için yapay zekâ özellikleri herkes için günde 25, ayda 300 kullanımla sınırlıdır.</p>
       </div>
       <div class="fiyatlar">
         <div class="fiyat"><div><h3>Aylık</h3><p>İstediğin zaman iptal et</p></div><strong>249,99 ₺<small> /ay</small></strong></div>
