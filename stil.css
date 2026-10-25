@@ -22,3 +22,19 @@ th,td{text-align:left;vertical-align:top;padding:9px 10px;border-bottom:1px soli
 th{background:var(--th)}tr:last-child td{border-bottom:0}
 .btn{display:inline-block;background:#0B3D2E;color:#fff !important;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:12px;border:2px solid #C9A227}
 footer{color:var(--sub);font-size:13px;padding:0 16px 32px}
+header{position:sticky;top:0;z-index:50}
+header .bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.menu-btn{display:none;align-items:center;gap:8px;background:transparent;border:1.5px solid rgba(255,255,255,.35);color:#fff;border-radius:12px;padding:7px 12px;font:600 15px inherit;font-family:inherit;cursor:pointer}
+.menu-btn .cizgi3{position:relative;width:18px;height:2px;background:#fff;border-radius:2px}
+.menu-btn .cizgi3::before,.menu-btn .cizgi3::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#fff;border-radius:2px;transition:transform .2s}
+.menu-btn .cizgi3::before{top:-6px}.menu-btn .cizgi3::after{top:6px}
+.menu-btn[aria-expanded="true"] .cizgi3{background:transparent}
+.menu-btn[aria-expanded="true"] .cizgi3::before{transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] .cizgi3::after{transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:700px){
+  .menu-btn{display:inline-flex}
+  header nav{display:none;flex-direction:column;gap:0;margin-top:12px}
+  header nav.acik{display:flex}
+  header nav a{padding:12px 2px;font-size:17px;border-top:1px solid rgba(255,255,255,.12);opacity:1}
+  header nav a[aria-current]{border-bottom:0;color:#E2C15A}
+}
