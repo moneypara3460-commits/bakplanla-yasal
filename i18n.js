@@ -151,7 +151,19 @@ window.BP_CEVIRI={
 "t148": "<a href=\"hesap-silme.html\">Delete account</a>",
 "t149": "Contact",
 "t150": "© 2026 BAKPLANLA. Data controller: <span data-k=\"sorumlu\">[AD SOYAD]</span>, <span data-k=\"adres\">[ADRES]</span>.",
-"t900": "Follow on Instagram"
+"t900": "Follow on Instagram",
+"t901": "WHY BAKPLANLA?",
+"t902": "It thinks before you ask.",
+"t903": "Asking AI a question is easy. The hard part is knowing what to ask, saving the answer somewhere and remembering it when the time comes. BAKPLANLA does that for you.",
+"t904": "No need to ask",
+"t905": "It tells you what to do today, where the opportunities are and what you shouldn't forget.",
+"t906": "Your life in one place",
+"t907": "Your documents, receipts, warranties and tasks don't get lost in a chat history; they're kept organized.",
+"t908": "Reminds you on time",
+"t909": "When a bill is due, your insurance expires or a warranty runs out, it lets you know before you ask.",
+"t910": "Knows your area",
+"t911": "It shows real businesses near you and their current offers.",
+"t912": "AI chats. <b>BAKPLANLA plans your life.</b>"
 },
 "de": {
 "t1": "Plant dein Leben mit dir.",
@@ -304,7 +316,19 @@ window.BP_CEVIRI={
 "t148": "<a href=\"hesap-silme.html\">Konto löschen</a>",
 "t149": "Kontakt",
 "t150": "© 2026 BAKPLANLA. Verantwortlich: <span data-k=\"sorumlu\">[AD SOYAD]</span>, <span data-k=\"adres\">[ADRES]</span>.",
-"t900": "Auf Instagram folgen"
+"t900": "Auf Instagram folgen",
+"t901": "WARUM BAKPLANLA?",
+"t902": "Es denkt mit, bevor du fragst.",
+"t903": "Einer KI eine Frage zu stellen ist leicht. Schwer ist es, zu wissen, was man fragen soll, die Antwort aufzubewahren und sich zur richtigen Zeit daran zu erinnern. BAKPLANLA übernimmt das für dich.",
+"t904": "Du musst nicht fragen",
+"t905": "Es sagt dir, was du heute tun kannst, wo es Angebote gibt und was du nicht vergessen darfst.",
+"t906": "Dein Leben an einem Ort",
+"t907": "Deine Dokumente, Kassenbons, Garantien und Aufgaben gehen nicht in einem Chatverlauf verloren, sondern bleiben geordnet.",
+"t908": "Erinnert dich rechtzeitig",
+"t909": "Wenn eine Rechnung fällig ist, deine Versicherung endet oder eine Garantie abläuft, meldet es sich, ohne dass du fragst.",
+"t910": "Kennt deine Umgebung",
+"t911": "Es zeigt echte Geschäfte in deiner Nähe und ihre aktuellen Angebote.",
+"t912": "KI plaudert. <b>BAKPLANLA plant dein Leben.</b>"
 },
 "ar": {
 "t1": "يخطّط حياتك معك.",
@@ -457,6 +481,18 @@ window.BP_CEVIRI={
 "t148": "<a href=\"hesap-silme.html\">حذف الحساب</a>",
 "t149": "تواصل معنا",
 "t150": "© 2026 BAKPLANLA. مسؤول البيانات: <span data-k=\"sorumlu\">[AD SOYAD]</span>، <span data-k=\"adres\">[ADRES]</span>.",
-"t900": "تابعنا على Instagram"
+"t900": "تابعنا على Instagram",
+"t901": "لماذا BAKPLANLA؟",
+"t902": "يفكّر قبل أن تسأل.",
+"t903": "طرح سؤال على الذكاء الاصطناعي سهل. الصعب هو أن تعرف ماذا تسأل، وأن تحفظ الإجابة في مكان ما، وأن تتذكرها في وقتها. BAKPLANLA يقوم بذلك نيابةً عنك.",
+"t904": "لا حاجة للسؤال",
+"t905": "يخبرك بما يمكنك فعله اليوم، وأين توجد الفرص، وما الذي لا يجب أن تنساه.",
+"t906": "حياتك في مكان واحد",
+"t907": "مستنداتك وإيصالاتك وضماناتك ومهامك لا تضيع في سجل المحادثات، بل تُحفظ بشكل منظم.",
+"t908": "يذكّرك في الوقت المناسب",
+"t909": "عند موعد الفاتورة أو انتهاء التأمين أو مدة الضمان، ينبّهك دون أن تسأل.",
+"t910": "يعرف منطقتك",
+"t911": "يعرض لك المتاجر الحقيقية القريبة منك وعروضها الحالية.",
+"t912": "الذكاء الاصطناعي يدردش. <b>BAKPLANLA يخطّط حياتك.</b>"
 }
 };
